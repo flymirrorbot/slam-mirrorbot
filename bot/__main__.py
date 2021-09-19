@@ -45,8 +45,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/SlamDevs/slam-mirrorbot")
-    buttons.buildbutton("Channel", "https://t.me/SlamMirrorUpdates")
+    buttons.buildbutton("Owner", "https://t.me/flyr3x")
+    buttons.buildbutton("Channel", "https://t.me/flymirror")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -56,7 +56,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            'Oops! not a Authorized user.\nPlease deploy your own <b>slam-mirrorbot</b>.',
+            'Oops! not a Authorized user.\n<b>FLY MIRROR</b>.',
             context.bot,
             update,
             reply_markup,
@@ -154,8 +154,8 @@ def bot_help(update, context):
 
 /{BotCommands.TsHelpCommand}: Get help for Torrent search module
 '''
-    help = Telegraph(access_token=telegraph_token).create_page(title = 'Slam Mirrorbot Help', author_name='Slam Mirrorbot',
-                                                               author_url='https://github.com/SlamDevs/slam-mirrorbot', html_content=help_string_telegraph)["path"]
+    help = Telegraph(access_token=telegraph_token).create_page(title = 'FLY Mirrorbot Help', author_name='Mirrorbot',
+                                                               author_url='404 Page Not Found', html_content=help_string_telegraph)["path"]
     button = button_build.ButtonMaker()
     button.buildbutton("Other Commands", f"https://telegra.ph/{help}")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
