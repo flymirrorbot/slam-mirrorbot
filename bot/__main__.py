@@ -154,8 +154,8 @@ def bot_help(update, context):
 
 /{BotCommands.TsHelpCommand}: Get help for Torrent search module
 '''
-    help = Telegraph(access_token=telegraph_token).create_page(title = 'FLY Mirror bot Help', author_name='FLY MIRROR BOT',
-                                                               author_url='t.me/flymirrorbot', html_content=help_string_telegraph)["path"]
+    help = Telegraph(access_token=telegraph_token).create_page(title = 'Slam Mirrorbot Help', author_name='Slam Mirrorbot',
+                                                               author_url='https://github.com/SlamDevs/slam-mirrorbot', html_content=help_string_telegraph)["path"]
     button = button_build.ButtonMaker()
     button.buildbutton("Other Commands", f"https://telegra.ph/{help}")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
