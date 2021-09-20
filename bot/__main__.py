@@ -88,8 +88,6 @@ def log(update, context):
 
 def bot_help(update, context):
     help_string_telegraph = f'''<br>
-<b>/{BotCommands.PingCommand}</b>: Check how long it takes to Ping the Bot
-<br><br>
 <b>/{BotCommands.AuthorizeCommand}</b>: Authorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
 <br><br>
 <b>/{BotCommands.UnAuthorizeCommand}</b>: Unauthorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
@@ -109,8 +107,6 @@ def bot_help(update, context):
 <b>/{BotCommands.ShellCommand}</b>: Run commands in Shell (Only Owner)
 <br><br>
 <b>/{BotCommands.ExecHelpCommand}</b>: Get help for Executor module (Only Owner)
-<br><br>
-<b>/{BotCommands.TsHelpCommand}</b>: Get help for Torrent search module
 '''
 
     help_string = f'''
@@ -153,11 +149,15 @@ def bot_help(update, context):
 /{BotCommands.StatusCommand}: Shows a status of all the downloads
 
 /{BotCommands.StatsCommand}: Show Stats of the machine the bot is hosted on
+
+/{BotCommands.PingCommand}: Check how long it takes to Ping the Bot
+
+/{BotCommands.TsHelpCommand}: Get help for Torrent search module
 '''
     help = Telegraph(access_token=telegraph_token).create_page(title = 'FLY Mirrorbot Help', author_name='FLY MIRROR BOT',
                                                                author_url='https://github.com/SlamDevs/slam-mirrorbot', html_content=help_string_telegraph)["path"]
     button = button_build.ButtonMaker()
-    button.buildbutton("Other Commands", f"https://telegra.ph/{help}")
+    button.buildbutton("Admin Commands", f"https://telegra.ph/{help}")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
     sendMarkup(help_string, context.bot, update, reply_markup)
 
